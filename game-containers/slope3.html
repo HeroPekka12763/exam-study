@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slope 3 | Unblocked Games</title>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <style>
+        body { margin: 0; display: flex; flex-direction: column; align-items: center; background-image: url('../images/background-gradient.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; font-family: 'Segoe UI', Tahoma, Arial, Verdana, sans-serif;}
+        iframe { 
+    width: 65vw;
+    height: 70vh;
+    border: 3px solid #444; 
+    margin-top: 20px;
+    margin-left: 50px;
+    align-self: flex-start;
+}
+#game-title {
+    margin-top: 30px;
+    font-size: 32px;
+    color: white;
+    z-index: 60;
+    animation:colorChange;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+    animation-play-state:running;
+    animation-delay:0s;
+    animation-timing-function:linear;
+    text-shadow:0 0 30px;
+}
+@keyframes colorChange{
+    	9%{color:orange;}
+        18%{color:yellow;}
+        27%{color:green;}
+        36%{color:blue;}
+        45%{color:purple;}
+        50%{color:red;}
+        54%{color:orange;}
+        63%{color:yellow;}
+        72%{color:green;}
+        81%{color:blue;}
+        90%{color:purple;}
+        100%{color:red;}
+    }
+    .back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #555;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+.back-btn:hover {
+    color: white;
+}
+    .fullscreen-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #111; 
+    color: white;
+    border: 2px solid #555;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    margin: 0;
+}
+.fullscreen-btn:hover {
+    background: #222;
+    border-color: #4b4b4b;
+    box-shadow: 0 0 15px #484848;
+    transform: translateY(-2px); 
+}
+.fullscreen-btn:active {
+    transform: translateY(0px); 
+}
+#doc-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #fff url('../images/blank-google-doc.png') center center / contain no-repeat;
+    background-color: rgba(255, 255, 255, 0.98);
+}
+#top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #202020;
+    z-index: 50;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.main-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 80px;
+    padding-left: 20px;
+}
+
+.side-panel {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 250px; 
+}    h6 {
+        color: white;
+    }
+#play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65vw;
+    height: 70vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+#play-button {
+    font-size: 48px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}    </style>
+</head>
+<body>
+    <div id="top-bar"></div>
+    <a href="../index.html" class="back-btn" target="_top">← Back to Home</a>
+    <h1 id="game-title"><ins>Slope 3</ins></h1>
+    
+   <div class="main-layout">
+    <div class="game-section">
+        <iframe src="../games/slope3.html" allowfullscreen></iframe>
+    </div>
+    <div class="side-panel">
+        
+        <div class="button-container">
+            <button onclick="goFullscreen()" class="fullscreen-btn">⛶ Enter Fullscreen</button>
+            <button onclick="showDocOverlay()" class="fullscreen-btn">📝 Hide Mode</button>
+        </div>
+    </div>
+</div>
+
+<div id="doc-overlay" aria-hidden="true"></div>
+
+    <script>
+    function goFullscreen() {
+        let game = document.querySelector('iframe');
+        if (game.requestFullscreen) {
+            game.requestFullscreen();
+        } else if (game.webkitRequestFullscreen) { /* For Safari */
+            game.webkitRequestFullscreen();
+        } else if (game.msRequestFullscreen) {
+            game.msRequestFullscreen();
+        }
+    }
+
+    function blockF11(event) {
+        if (event.key === 'F11' || event.code === 'F11') {
+            event.preventDefault();
+            event.stopPropagation();
+            if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+            return false;
+        }
+    }
+
+    function attachIframeF11Block() {
+        const iframe = document.querySelector('iframe');
+        if (!iframe) return;
+        try {
+            const iframeWin = iframe.contentWindow;
+            if (iframeWin) {
+                iframeWin.addEventListener('keydown', blockF11, true);
+            }
+            const iframeDoc = iframe.contentDocument || iframeWin?.document;
+            if (iframeDoc) {
+                iframeDoc.addEventListener('keydown', blockF11, true);
+            }
+        } catch (e) {
+            // ignore cross-origin or access errors
+        }
+    }
+
+    window.addEventListener('load', attachIframeF11Block);
+    document.querySelector('iframe')?.addEventListener('load', attachIframeF11Block);
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key !== 'F11' && event.code !== 'F11') {
+            document.querySelector('iframe').focus();
+        }
+    });
+
+    function showDocOverlay() {
+        const overlay = document.getElementById('doc-overlay');
+        overlay.style.display = 'block';
+        setTimeout(() => {
+            document.addEventListener('click', hideDocOverlayOnce, { once: true });
+        }, 0);
+    }
+
+    function hideDocOverlayOnce() {
+        const overlay = document.getElementById('doc-overlay');
+        overlay.style.display = 'none';
+    }
+</script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h6>Slope 3 by CoolDude2349</h6>
+
+<!-- Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah 
+ Tonight we playing Clash Royale oh yeah  -->
+
+</body>
+</html>
