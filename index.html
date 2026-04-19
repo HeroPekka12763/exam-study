@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" /> 
+    <title>Unblocked Games</title>
+</head>
+<body>
+    <div id="top-bar"></div>
+    <button onclick="showDocOverlay()" class="doc-btn">📝 Hide Mode</button>
+    <div style="text-align:center" id="rgbtitle">
+	    <h1><ins>Unblocked Games</ins></h1>
+    <br>
+    </div> <!-- This section is dedicated to importing as many games as I physically can so good luck for me I guess-->
+        <div class="game-grid">
+    <a href="./game-containers/eaglercraft.html" class="game-card">
+        <img src="./game-icons/eaglercraft-icon.png" alt="Eaglercraft">
+    </a>
+    <a href="./game-containers/tetris.html" class="game-card">
+        <img src="./game-icons/tetris-icon.png" alt="Tetris">
+    </a>
+    <a href="./game-containers/wbwwb.html" class="game-card">
+        <img src="./game-icons/we-become-what-we-behold-icon.png" alt="We Become What We Behold">
+    </a>
+    <a href="./game-containers/html-tower-defence.html" class="game-card">
+        <img src="./game-icons/html-tower-defence-icon.png" alt="HTML Tower Defence">
+    </a>
+    <a href="./game-containers/slopeoffline.html" class="game-card">
+        <img src="./game-icons/slope-icon.png" alt="Slope Offline">
+    </a>
+    <a href="./game-containers/mini-car-game.html" class="game-card">
+        <img src="./game-icons/mini-car-game-icon.png" alt="Mini Car Game">
+    </a>
+    <a href="./game-containers/2048.html" class="game-card">
+        <img src="./game-icons/2048-icon.png" alt="2048">
+    </a>
+    <a href="./game-containers/subway-surfers.html" class="game-card">
+        <img src="./game-icons/subway-surfers-icon.png" alt="Subway Surfers">
+    </a>
+    <a href="./game-containers/custom-royale-game.html" class="game-card">
+        <img src="./game-icons/clash-royale-icon.png" alt="Custom Royale">
+    </a>
+    </div>
+    <div id="doc-overlay"></div>
+    <script>
+    function showDocOverlay() {
+        const overlay = document.getElementById('doc-overlay');
+        overlay.style.display = 'block';
+        setTimeout(() => {
+            document.addEventListener('click', hideDocOverlayOnce, { once: true });
+        }, 0);
+    }
+
+    function hideDocOverlayOnce() {
+        const overlay = document.getElementById('doc-overlay');
+        overlay.style.display = 'none';
+    }
+    </script>
+</body>
+</html>
