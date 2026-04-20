@@ -145,9 +145,19 @@
             document.addEventListener('click', hideDocOverlayOnce, { once: true });
         }, 0);
     }
-
     function hideDocOverlayOnce() {
         const overlay = document.getElementById('doc-overlay');
+        overlay.style.display = 'none';
+    }
+    function showInfoOverlay() {
+        const overlay = document.getElementById('info-overlay');
+        overlay.style.display = 'block';
+        setTimeout(() => {
+            document.addEventListener('click', hideInfoOverlayOnce, { once: true });
+        }, 0);
+    }
+    function hideInfoOverlayOnce() {
+        const overlay = document.getElementById('info-overlay');
         overlay.style.display = 'none';
     }
     </script>
