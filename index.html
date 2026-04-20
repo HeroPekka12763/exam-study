@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" /> 
-    <title>Unblocked Games</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Docs - Google Docs</title>
 </head>
 <body>
     <div id="top-bar"></div>
     <button onclick="showDocOverlay()" class="doc-btn">📝 Hide Mode</button>
+    <button onclick="showInfoOverlay()" class="info-btn">ℹ️ Info</button>
+    <button onclick="stealthModeharharhar()" class="stealth-btn">‼️ Stealth Mode</button>
     <div style="text-align:center" id="rgbtitle">
 	    <h1><ins>Unblocked Games</ins></h1>
     <br>
@@ -145,21 +148,50 @@
             document.addEventListener('click', hideDocOverlayOnce, { once: true });
         }, 0);
     }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === '\\') { 
+            showDocOverlay();
+        }
+    });
     function hideDocOverlayOnce() {
         const overlay = document.getElementById('doc-overlay');
         overlay.style.display = 'none';
     }
+    </script>
+    <div id="info-overlay">
+    <div class="info-content"></div>
+    </div>
+    <script>
     function showInfoOverlay() {
         const overlay = document.getElementById('info-overlay');
-        overlay.style.display = 'block';
+        overlay.style.display = 'flex'; // Use flex to center the .info-content box
         setTimeout(() => {
-            document.addEventListener('click', hideInfoOverlayOnce, { once: true });
+        document.addEventListener('click', hideInfoOverlayOnce, { once: true });
         }, 0);
     }
     function hideInfoOverlayOnce() {
         const overlay = document.getElementById('info-overlay');
         overlay.style.display = 'none';
     }
+    </script>
+    <script>
+        function stealthModeharharhar() {
+        var win = window.open();
+        var url = window.location.href;
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+        var iframe = win.document.createElement('iframe');
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "none";
+        iframe.src = url;
+        win.document.body.appendChild(iframe);
+        win.document.title = "Google Docs";
+        var link = win.document.createElement('link');
+        link.rel = 'icon';
+        link.href = './images/favicon.ico';
+        win.document.head.appendChild(link);
+}
     </script>
 </body>
 </html>

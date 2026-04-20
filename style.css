@@ -29,7 +29,8 @@ body {
     height: 150px;
     background-color: #202020;
     z-index: 50;
-}.doc-btn {
+}
+.doc-btn {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -47,7 +48,8 @@ body {
     cursor: pointer;
 }
 .doc-btn:hover {
-    color: white;
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 #doc-overlay {
     display: none;
@@ -95,4 +97,62 @@ body {
     transform: scale(1.05);
     z-index: 10;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+.info-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #555;
+    transition: all 0.3s ease;
+    z-index: 100;
+    cursor: pointer;
+}
+.info-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+#info-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+.info-content {
+    width: 385px;
+    height: 280px;
+    background: #555 url('./images/info.png') center center / contain no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 2px solid #555;
+}
+.stealth-btn {
+    position: absolute;
+    top: 70px; 
+    left: 20px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #555;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+.stealth-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.05);
 }
